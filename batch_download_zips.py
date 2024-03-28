@@ -1,6 +1,7 @@
-# Download the 56 zip files in Images_png in batches
-import urllib
-
+# Download the 56 zip files in Images_png in batc
+import urllib.request
+#logs script in the terminal/output
+print("Batch Download of Dataset has Started")
 # URLs for the zip files
 links = [
     'https://nihcc.box.com/shared/static/sp5y2k799v4x1x77f7w1aqp26uyfq7qz.zip',
@@ -67,9 +68,9 @@ links = [
 ]
 
 md5_link = 'https://nihcc.box.com/shared/static/q0f8gy79q2spw96hs6o4jjjfsrg17t55.txt'
-urllib.urlretrieve(md5_link, "MD5_checksums.txt")  # download the MD5 checksum file
+urllib.request.urlretrieve(md5_link, "MD5_checksums.txt")  # download the MD5 checksum file
 for idx, link in enumerate(links):
     fn = 'Images_png_%02d.zip' % (idx+1)
-    print 'downloading', fn, '...'
-    urllib.urlretrieve(link, fn)  # download the zip file
-print "Download complete. Please check the MD5 checksums"
+    print( 'downloading', fn, '...')
+    urllib.request.urlretrieve(link, fn)  # download the zip file
+print( "Download complete. Please check the MD5 checksums")
